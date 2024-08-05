@@ -1,0 +1,158 @@
+﻿{%load static %}
+<div class="sidebar">
+  <a class="active" href="#home">Home</a>
+  <a href="{% url 'posts' %}">Posts</a>
+  <a href="{% url 'logout' %}">Logout</a>
+  <a href="{% url 'login' %}">Login</a>
+  <a href="{% url 'my_music' %}">My music</a>
+</div>
+  
+  <!-- Содержимое страницы -->
+  <div class="content">
+    
+
+</div>
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sign Up Form</title>
+        <link rel="stylesheet" href="css/normalize.css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    </head>
+<body>
+  
+    <form action="http://127.0.0.1:8000/" method="post">
+          {% csrf_token %}
+          <p>Your basic info:</p>
+          
+          <h2>Name</h2>
+          <input name="input_name" value="{{ input_name }}"/>
+
+          <h2>Email</h2>
+          <input type="text" id="mail" name="student_email">
+
+          <h2>Password</h2>
+          <input type="password" id="password" name="student_password">
+
+          <h2>Age:</h2>
+          <input type="radio" id="under_16" value="under_16" name="user_age"><label for="under_16" class="light">Under 16</label><br>
+          <input type="radio" id="over_16" value="over_16" name="user_age"><label for="over_16" class="light">16 or Older</label>
+
+          <h2>Your profile</h2>
+          
+          <h2>Biography</h2>
+          <textarea id="bio" name="student_bio"></textarea>
+
+          <h2>Select Courses</h2>
+          <select id="courses" name="student_courses">
+            <optgroup label="Engineering">
+              <option value="computer_engineering">Computer Science Engineering</option>
+              <option value="slectrical_engineering">Electrical Engineering</option>
+              <option value="mechanical_engineering">Mechanical Engineering</option>
+              <option value="civil_engineering">Civil Engineering</option>
+              <option value="chemical_engineering">Chemical Engineering</option>
+            </optgroup>
+            <optgroup label="Management">
+              <option value="finance_management">Finance Management</option>
+              <option value="technology_management">Technology Management</option>
+              <option value="marketing_management">Marketing Management</option>
+              <option value="business_administration">Business Administration</option>
+            </optgroup>
+          </select>
+          <button type="submit" value="Отправить">Submit</button>
+
+        
+           
+       </form>
+	</div>	  
+  </body>
+</html>
+
+  </div>
+
+<style>
+    /* Боковое навигационное меню */
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+/* Сайдбар ссылки */
+.sidebar a {
+  display: block;
+  color: rgb(4, 4, 4);
+  padding: 16px;
+  text-decoration: none;
+  text-decoration: solid;
+  font-size: 20px;
+}
+
+/* Активная/текущая ссылка */
+.sidebar a.active {
+  background-color: #4CAF50;
+  color: rgb(0, 0, 0);
+}
+
+/* Ссылки при наведении мыши */
+.sidebar a:hover:not(.active) {
+  background-color: #a6eabb;
+  color: rgb(24, 17, 17);
+}
+
+/* Содержание страницы. Значение свойства margin-left должно соответствовать значению свойства width боковой панели */
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+/* На экранах шириной менее 700 пикселей превратить боковую панель в верхнюю панель */
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+/* На экранах размером менее 400 пикселей панель отображать вертикально, а не горизонтально */
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+
+p{
+  font-size: 30px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+button{
+  background-color: #71a3e4;
+  border-radius: 5px;
+  width: 100px;
+  margin-top: 40px;
+}
+button:hover {
+  background-color: #56a3da; /* Цвет фона */
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #3f4a8a; 
+
+}
+.content{
+  background-color: #acf6a8;
+}
+body{
+  background-color: #0c8589;
+}
+</style>  

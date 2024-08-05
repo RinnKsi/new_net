@@ -1,0 +1,27 @@
+﻿{% extends 'blog/profile.html' %}
+
+{% block title %}Music{% endblock%}
+{% block content %}
+<form action="https://www.primer.ru/zagruzka.php" method="post">
+    <p>Выгрузите свою песню в формате MP3:</p>
+        <input type="file" name="pesnya" />
+        <br />
+        <input type="submit" value="Загрузить" />
+</form>
+<h1>Добавить музыку</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="title">Название:</label>
+    <input type="text" id="title" name="title">
+    <br>
+    <label for="artist">Исполнитель:</label>
+    <input type="text" id="artist" name="artist">
+    <br>
+    <label for="audio_file">Аудиофайл:</label>
+    <input type="file" id="audio_file" name="audio_file">
+    <br>
+    <input type="submit" value="Добавить">
+</form>
+
+{% endblock %}
+
